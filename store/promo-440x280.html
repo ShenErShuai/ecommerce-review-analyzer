@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 440px; height: 280px; }
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 34px;
+    font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 52%, #3b82f6 100%);
+    color: #fff;
+    overflow: hidden;
+    position: relative;
+  }
+  .glow {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    right: -90px;
+    top: -110px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.13);
+  }
+  .glow.b {
+    width: 170px;
+    height: 170px;
+    right: 30px;
+    top: auto;
+    bottom: -105px;
+    background: rgba(255, 255, 255, 0.09);
+  }
+  .brand { display: flex; align-items: center; gap: 11px; position: relative; }
+  .mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 11px;
+    background: #fff;
+    color: #1d4ed8;
+    font-size: 23px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  h1 { font-size: 31px; font-weight: 700; letter-spacing: 1px; }
+  .sub {
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.93);
+    position: relative;
+  }
+  .tags { display: flex; gap: 7px; margin-top: 19px; position: relative; }
+  .tag {
+    padding: 5px 11px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.17);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 12.5px;
+  }
+  .foot {
+    margin-top: 17px;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.72);
+    position: relative;
+  }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="glow b"></div>
+
+  <div class="brand">
+    <div class="mark">评</div>
+    <h1>AI评论洞察</h1>
+  </div>
+
+  <div class="sub">一键读懂商品页评论<br />好评卖点 · 差评痛点 · 用户画像 · 改进建议</div>
+
+  <div class="tags">
+    <div class="tag">淘宝 / 天猫 / 京东</div>
+    <div class="tag">自带 API Key</div>
+    <div class="tag">导出 CSV</div>
+  </div>
+
+  <div class="foot">免费每天 3 次 · Pro 一次买断不限次数</div>
+</body>
+</html>

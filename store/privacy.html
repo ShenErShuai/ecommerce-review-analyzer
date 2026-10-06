@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AI评论洞察 隐私政策</title>
+<style>
+  body {
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+    max-width: 720px;
+    font: 16px/1.75 -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+    color: #1f2328;
+  }
+  h1 { font-size: 26px; margin-bottom: 4px; }
+  h2 { font-size: 18px; margin-top: 32px; }
+  .meta { color: #6b7280; font-size: 14px; }
+  table { border-collapse: collapse; width: 100%; margin-top: 8px; font-size: 15px; }
+  th, td { border: 1px solid #d0d7de; padding: 8px 10px; text-align: left; vertical-align: top; }
+  th { background: #f6f8fa; }
+  code { background: #f6f8fa; padding: 1px 5px; border-radius: 4px; font-size: 14px; }
+  a { color: #0969da; }
+</style>
+</head>
+<body>
+
+<h1>AI评论洞察 隐私政策</h1>
+<p class="meta">最后更新：2026-09-15 &nbsp;|&nbsp; 适用版本：0.1.0 起</p>
+
+<p>AI评论洞察（以下称「本插件」）是一款 Chrome 扩展，用于提取电商商品页上<strong>用户当前已经看到的评论</strong>，并调用用户自己配置的 AI 服务完成分析。本政策说明本插件如何处理数据。</p>
+
+<h2>1. 开发者不运营任何业务后端</h2>
+<p>本插件没有开发者自己的服务器。评论内容、AI API Key、浏览记录都不会发送给开发者，也不存在开发者侧的数据库或日志。</p>
+
+<h2>2. 评论如何被处理</h2>
+<p>只有在用户主动点击「提取并分析」后，本插件才会读取当前标签页 DOM 中已渲染的评论文本，在本地整理后，直接从浏览器发送到用户自己填写的 AI 服务商接口。本插件不会自动登录、不会自动翻页、不会在后台持续抓取，也不会读取用户的订单、收货地址、支付信息或账号密码。</p>
+
+<h2>3. 本地存储的数据</h2>
+<table>
+  <tr><th>数据</th><th>存放位置</th><th>用途</th></tr>
+  <tr><td>AI API Key</td><td><code>chrome.storage.local</code></td><td>调用用户自己的 AI 服务</td></tr>
+  <tr><td>插件设置</td><td><code>chrome.storage.local</code></td><td>记住模型与偏好</td></tr>
+  <tr><td>当日使用次数</td><td><code>chrome.storage.local</code></td><td>免费版每日次数限制</td></tr>
+  <tr><td>最近一次提取结果</td><td><code>chrome.storage.local</code></td><td>Pro 的「翻页后合并」功能</td></tr>
+</table>
+<p>以上数据仅保存在用户本机浏览器内，不会上传。卸载插件或清除浏览器数据即会一并删除。</p>
+
+<h2>4. 第三方服务</h2>
+<p><strong>AI 服务商（当前为 DeepSeek）</strong>：用户点击分析时，评论文本会发送到该服务商完成分析。该服务商如何处理这些内容，适用其自身的隐私政策。用户可以选择不填写 API Key，此时插件不会发送任何内容。</p>
+<p><strong>艺爪付费</strong>：仅在用户主动点击「开通 Pro」或查询会员状态时使用，用于处理支付和会员校验。为此会传输一个由浏览器本地生成的匿名设备标识，用来把已购买的权益关联到当前浏览器；该标识不包含姓名、手机号、邮箱等个人身份信息。支付流程由艺爪及其支付渠道完成，本插件不接触、不存储任何银行卡或支付账号信息。参见 <a href="https://www.ezboti.com/docs/revenue/" target="_blank" rel="noreferrer">艺爪付费文档</a>。</p>
+
+<h2>5. 权限说明</h2>
+<table>
+  <tr><th>权限</th><th>为什么必需</th></tr>
+  <tr><td><code>activeTab</code></td><td>仅在用户点击插件时读取当前标签页，用于识别平台与提取可见评论</td></tr>
+  <tr><td><code>storage</code></td><td>在本地保存 API Key、设置与当日次数</td></tr>
+  <tr><td><code>scripting</code></td><td>向商品页注入提取脚本，读取已渲染的评论文本</td></tr>
+  <tr><td><code>windows</code></td><td>打开艺爪付费窗口完成开通</td></tr>
+  <tr><td>淘宝 / 天猫 / 京东域名</td><td>本插件支持的商品页范围，只在这些站点提取评论</td></tr>
+  <tr><td><code>api.deepseek.com</code></td><td>用用户自己的 Key 调用 AI 分析</td></tr>
+  <tr><td><code>revenue.ezboti.com</code></td><td>开通 Pro 与校验会员状态</td></tr>
+</table>
+
+<h2>6. 儿童</h2>
+<p>本插件面向商家与运营人员，不针对 13 岁以下儿童，也不刻意收集其信息。</p>
+
+<h2>7. 政策变更</h2>
+<p>本政策如有变更，会更新本页顶部的日期。涉及数据处理方式的实质变更，会同时在扩展更新说明中标注。</p>
+
+<h2>8. 联系方式</h2>
+<p>如对本政策有疑问，请联系：<code>[待填写：你的邮箱]</code></p>
+
+</body>
+</html>
